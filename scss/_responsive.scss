@@ -1,0 +1,151 @@
+@import 'config';
+
+@include media-md {
+
+    main{
+    
+        .sections{
+
+            font-size: 0.6rem;
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            margin: 1rem 0 0.5rem 1rem;
+
+            &-section{
+
+                p{
+                    font-size: 1rem;
+                }
+            }
+        }  
+        
+        .albums{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-content: center;
+            justify-content: center;
+
+            .album{
+                width: 10rem;
+                height: 8rem;
+                justify-self: center;
+                margin: 1rem 0.3rem 3.5rem .3rem ;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                &-img{
+                    
+                    
+    
+                    &::after{
+                        font-family: "Font Awesome 5 Free";
+                        content: '\f144';
+                        position: absolute;
+                        top: calc(50% + 1rem);
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 3rem;
+                        color: #fff;
+                        transition: all 1s ease-in-out;
+                        opacity: 0;
+                        
+                    }
+    
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        height: 10rem;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        background: rgba(0, 0, 0, 0.6);
+                        background: linear-gradient(180deg, rgb(20, 20, 20) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgb(20, 20, 20) 100%);
+                        transition: all 1s ease-in-out;
+                        opacity: 0;  
+                    }
+                }
+            }
+        }
+    
+    }    
+}
+
+
+@include media-l{
+
+    main{
+    
+        .sections{
+
+            font-size: 0.6rem;
+            display: flex;
+            flex-direction: row wrap;
+            //grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            margin: 1rem 5rem;
+
+            p{
+                width: 100%;
+                margin: 0.5rem 0;
+                font-size: 1rem;
+                font-weight: 700;
+                color: $light-grey;
+                padding-bottom: 0.3rem;
+            }
+        }  
+        
+        .albums{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-content: center;
+            justify-content: center;
+
+            .album{
+                width: 13rem;
+                height: 11rem;
+                justify-self: center;
+                margin: 0 0.3rem 5rem 0.3rem ;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                
+                &-img{
+                    width: 100%;
+                    
+    
+                    &::after{
+                        font-family: "Font Awesome 5 Free";
+                        content: '\f144';
+                        position: absolute;
+                        top: calc(50% + 1rem);
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 3rem;
+                        color: #fff;
+                        transition: all 1s ease-in-out;
+                        opacity: 0;
+                        
+                    }
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        height: 13rem;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        background: rgba(0, 0, 0, 0.6);
+                        background: linear-gradient(180deg, rgb(20, 20, 20) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgb(20, 20, 20) 100%);
+                        transition: all 1s ease-in-out;
+                        opacity: 0;  
+                    }
+                }
+        
+            }
+        }
+    
+    }    
+}

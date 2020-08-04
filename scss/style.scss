@@ -1,0 +1,640 @@
+
+@import 'config';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url('../fonts/GothamLight.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url('../fonts/GothamMedium.ttf');
+    font-weight: 700;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    scrollbar-color: #18aa4b #b3b3b3;
+}
+
+/* WEBKIT SCROLLBARR */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1db954;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0e7432;
+}
+  
+
+.header-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 12vh;
+    background: $third-color;
+    z-index: 1;
+}
+
+.spotify-logo{
+    width: 100vw;
+    height: 12vh;
+    background: $third-color;
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+
+
+    &-image{
+        width: 30vw;
+        display: flex;
+        flex-direction: row wrap;
+        align-items: center;
+        margin-left: 1rem;
+        
+        i{
+        font-size: 2rem;
+        color: $secondary-color;
+        }
+
+        p{
+        margin-left: .5rem;    
+        font-size: 1.5rem;
+        color: $secondary-color;
+        }
+    }
+
+    .upgrade{
+        margin-right: 1rem;
+        border-radius: 50px;
+        border: solid $secondary-color 1px;
+        font-weight: 700;
+        padding: 0.5rem 2rem;
+
+        
+        
+
+        &:hover{
+            //animation: bounce 0.5s;
+            // color: $hover-color;
+            // border-color: $hover-color;
+            // transition: 0.1s;
+            // transform: scale(1.05);
+            @include greenhover;
+            .upgrade-btn{
+                color: $hover-color;
+            }
+        }
+
+
+        &-btn{
+            font-size: 0.9rem;
+            color: $secondary-color;
+            background: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+        
+        }
+        
+        // @keyframe serve per dichiarare un evento che vado a chiamare con animation: Nome evento.
+        // @keyframes bounce {
+        //     0%{
+        //         transform: scale(1);
+        //     }
+        //     100%{
+        //         transform: scale(1.05);
+        //     }
+            
+        // }
+
+            
+            
+        
+
+    }
+}
+
+.sidebar{
+    position: fixed;
+    left: 0;
+    top: 12vh;
+    bottom: 13vh;
+    background: $third-color;
+    display: grid;
+    grid-template-columns: 230px;
+    grid-template-rows: 10vh 1fr 13vh;
+    
+
+    .btns-box{
+        color: $primary-color;
+        
+            ul{
+                list-style-type: none;
+                color: $light-grey;
+                    li{
+                    margin: 1rem 1.5rem;
+                    font-weight: 700;
+
+                        &:hover{
+                            color: green;
+                            cursor: pointer;
+                        }
+                        i{
+                            margin-right: 0.5rem;
+                        }
+                    }
+            
+            }
+    }
+
+    .playlist{
+        color: $light-grey;
+        margin: 4rem 1.5rem;
+        
+
+        ul{
+            list-style-type: none;
+
+            .playlist-item{
+                display: flex;
+                flex-direction: row wrap;
+                align-items: center;
+                margin-top: 0.5rem;
+                max-width: 28vh;
+
+                p{
+                
+                &:hover{
+                    cursor: pointer;
+                    color: #fff;
+                } 
+                }
+                 
+                .thumbnail-plus{
+                    width: 2rem;
+                    height: 2rem;
+                    margin-right: 0.5rem;
+                    
+                    i{
+                        background-color: rgb(177, 177, 177);
+                    }
+                }
+
+
+                .thumbnail{
+                    width: 2rem;
+                    height: 2rem;
+                    margin-right: 0.5rem;
+
+                    
+
+                    i{
+                        background-color: rgb(177, 177, 177);
+                    }
+                    
+                    
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                i{
+                    background: $primary-color;
+                    color: $third-color;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    padding-top: .5rem;
+                }
+            }
+        }
+    }
+
+    .user-nav{
+        bottom: 5rem;
+
+        .installer{
+            color: $light-grey;
+            border-bottom: solid 2px $light-grey;
+            width: 80%;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            
+            &:hover{
+                cursor: pointer;
+                color: #fff;
+            } 
+            
+
+            i{
+                margin: 0 0.5rem;
+            }
+
+        }
+
+        .user-logo{
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            
+            
+            
+            
+            &-logo{
+                color: $light-grey;
+                margin-left: 1rem;
+                font-size: 2rem;
+
+                &:hover{
+                    cursor: pointer;
+                    color: #fff;
+                } 
+            }
+            
+            &-name{
+                color: $light-grey;
+                margin-top: 0.4rem;
+                margin-left: 1rem;
+                font-size: 1rem;
+                
+                &:hover{
+                    cursor: pointer;
+                    color: #fff;
+                } 
+                
+            }
+
+            
+            
+        }
+        
+    }
+}
+
+main{
+    position: absolute;
+    width: calc(100% - 230px);
+    top: 12vh;
+    left: 230px;
+    bottom: 13vh;
+    background: $primary-color;
+    //overflow: scroll;
+    //Hide horizontal scrollbar
+    overflow-x: hidden;
+    
+
+    .sections{
+
+        font-size: 0.6rem;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        margin: 1rem 0 0.5rem 1rem;
+
+        
+        &-section{
+            padding-bottom: 0.3rem;
+            margin: 0 1rem;
+            cursor: pointer;
+
+            p{
+                font-weight: 700;
+                color: $light-grey;
+                font-size: 0.8rem;
+                
+                &::after{
+                    content: '';
+                    display: block;
+                    border-bottom: 2px solid $hover-color;
+                    transform: scaleX(0);
+                    transition: transform 0.4s ease-in-out;
+                    padding-bottom: 0.3rem;
+                    // Cambia la transizione, arriva da sx a dx
+                    // transform-origin: 100% 50%;  
+                    // transform-origin: 0% 50%;  
+                    
+                }
+
+                &:hover::after{
+                    transform: scaleX(1);  
+                    
+                }
+            }      
+        }
+        
+    }
+
+    .albums{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        justify-content: center;
+        
+
+        .album{
+            width: 7rem;
+            height: 9rem;
+            justify-self: center;
+            margin: 0 0.3rem 0.3rem .3rem ;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            //box-shadow: 0.5rem 0.5rem 1rem black;
+
+            
+            
+
+            &-img{
+                width: 100%;
+                
+
+                &::after{
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f144';
+                    position: absolute;
+                    top: calc(50% - 1rem);
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 3rem;
+                    color: #fff;
+                    transition: all 1s ease-in-out;
+                    opacity: 0;
+                    
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 7rem;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.6);
+                    background: linear-gradient(180deg, rgb(20, 20, 20) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgb(20, 20, 20) 100%);
+                    transition: all 1s ease-in-out;
+                    opacity: 0;  
+                }
+
+                &:hover::after, &:hover::before{
+                    opacity: 1;
+                }
+                
+
+                img{
+                    width: 100%;
+                    background-size: cover;
+                }
+            }
+
+            .album-title{
+                font-weight: 700;
+                align-self: center;
+                font-size: .8rem;
+                color: $light-grey;
+            }
+
+            .artist{
+                color: $light-grey;
+                align-self: center;
+                font-size: .8rem;
+            }
+
+        }
+    }
+}
+
+.footer-wrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 13vh;
+    color: $light-grey;
+    background: $primary-color;
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+
+    .icon-footer{
+        flex-grow: 0.5;
+        display: grid;
+        grid-template-columns: 4rem 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+
+        .thumb-footer{
+            height: 3rem;
+            width: 3rem;
+
+            img{
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+
+        p{
+            cursor: pointer;
+            margin: 0.2rem 0;
+        }
+
+        .artist-artist-song{
+            color: $secondary-color;
+        }
+        .artist-artist-footer{
+            color: $light-grey;
+            font-size: 0.8rem;
+
+            &:hover{
+                cursor: pointer;
+                color: #fff;
+            }  
+        }
+        
+
+        .like-footer{
+            
+            i{
+                
+                margin: 0 0.3rem;
+
+                &:hover{
+                    cursor: pointer;
+                    color: #fff;
+                }   
+            }
+        }
+    }
+
+    .player{
+        flex-grow: 2;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        
+        .player-btns{
+            justify-self: center;
+            
+            i{
+                margin: 0.5rem;
+                
+                &:hover{
+                    cursor: pointer;
+                    color: #fff;
+                }   
+            }
+        }
+
+        .time-bar{
+            display: grid;
+            grid-template-columns: 3rem 1fr 3rem;
+            align-self: center;
+            justify-content: center;
+
+            .progress-bar{
+                height: 100%;
+                width: 100%;
+                position: relative;
+
+                &-action{
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 0.2rem;
+                    border-radius: 50px;
+                    background: rgb(75, 75, 75);
+                    
+    
+                }
+
+
+                &::before{
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    left: 0;
+                    height: 0.2rem;
+                    width: 75%;
+                    background-color: $light-grey;
+                    z-index: 1;
+                    border-radius: 50px;
+                }
+
+                &::after{
+                    display: none;
+                    position: absolute;
+                    content: '';
+                    top: calc(50% - 0.3rem);
+                    left: 75%;
+                    height: 0.8rem;
+                    width: 0.8rem;
+                    border-radius: 50%;
+                    background-color: #fff;
+                }
+
+                &:hover::before{
+                    @include greenhover;
+                    background-color: $hover-color;
+                }
+
+                &:hover::after{
+                    display: block;
+                    z-index: 1;
+                }
+                
+                
+            }
+
+            p{
+                
+                width: 2rem;
+
+                
+            }
+
+            .total-time{
+                margin-left: 1rem;
+            }
+            
+
+            
+        }
+    }
+
+    .icon-share{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        i{
+            margin: 0 0.3rem;
+            
+            &:hover{
+                cursor: pointer;
+                color: #fff;
+            }        
+        }
+
+        .progress-bar{
+            height: 100%;
+            width: 100%;
+            position: relative;
+            margin-right: 1rem;
+
+            &-action{
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 0.2rem;
+                border-radius: 50px;
+                background: rgb(75, 75, 75);
+            }
+
+
+            &::before{
+                position: absolute;
+                content: '';
+                top: 50%;
+                height: 0.2rem;
+                width: 75%;
+                background-color: $secondary-color;
+                border-radius: 50px;
+                z-index: 1;
+            }
+                
+
+            
+        }
+    }
+
+
+    
+}
+
+@import 'responsive';

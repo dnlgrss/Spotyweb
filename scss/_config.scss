@@ -1,0 +1,52 @@
+
+
+$primary-color:rgb(40, 40, 40);
+$light-grey: rgb(146, 146, 146);
+$secondary-color: rgb(255, 255, 255);
+$third-color: rgb(21, 21, 21);
+$hover-color: #18aa4b;
+
+@mixin greenhover{
+        //animation: bounce 0.5s;
+        color: $hover-color;
+        border-color: $hover-color;
+        transition: 0.1s;
+        transform: scale(1.05);
+}
+
+@mixin layerbefore{
+    content: '';
+    position: absolute;
+    height: 12rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(180deg, rgb(20, 20, 20) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgb(20, 20, 20) 100%);
+    transition: all 1s ease-in-out;
+    opacity: 0;  
+}
+
+
+@mixin layerafter{
+    opacity: 1;
+}
+
+
+
+@mixin media-xl {
+    @media screen and (min-width: 1600px){
+        @content;
+    }
+}
+@mixin media-l {
+    @media screen and (min-width: 1024px){
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
